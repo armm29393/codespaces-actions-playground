@@ -3,9 +3,22 @@ name: Hello world
 on: [push]
 
 jobs:
-  hello-world:
+  fetch_and_commit:
     runs-on: ubuntu-latest
+
+    # outputs:
+    #   changes: ${{ steps.check_changes.outputs.changes }}
+
     steps:
-      - name: Hello world
+      - name: Check for changes
+        id: check_changes
+        run: echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changes
+        # if: steps.check_changes.outputs.changes == 'true'
         run: |
-          echo "Hello world"
+          if [[ ${{ steps.check_changes.outputs.changes }} == 'true' ]]; then
+          echo changed!;
+          else
+          echo not change :(;
+          fi
