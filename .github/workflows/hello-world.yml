@@ -15,7 +15,6 @@ jobs:
         run: echo "changes=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push if changes
-        # if: steps.check_changes.outputs.changes == 'true'
         run: |
           if [[ ${{ steps.check_changes.outputs.changes }} == 'true' ]]; then
           echo changed!;
