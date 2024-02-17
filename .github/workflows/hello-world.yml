@@ -19,5 +19,5 @@ jobs:
           if ${{ steps.check_changes.outputs.changes }}; then
           echo changed!;
           else
-          echo not change :(;
+          echo not change;
           fi
