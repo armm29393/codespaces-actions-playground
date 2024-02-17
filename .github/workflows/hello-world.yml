@@ -1,6 +1,6 @@
 name: Hello world
 
-on: [push]
+on: [workflow_dispatch, push]
 
 jobs:
   fetch_and_commit:
