@@ -12,12 +12,9 @@ jobs:
     steps:
       - name: Check for changes
         id: check_changes
-        run: echo "changes=true" >> $GITHUB_OUTPUT
-
+        run: echo "changes=$([ ($RANDOM % 2) == 1 ] && echo true || echo false)" >> $GITHUB_OUTPUT
       - name: Commit and push if changes
         run: |
           if [[ ${{ steps.check_changes.outputs.changes }} == true ]]; then
           echo changed!;
-          else
-          echo not change;
           fi
