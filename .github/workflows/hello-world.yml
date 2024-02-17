@@ -16,7 +16,7 @@ jobs:
 
       - name: Commit and push if changes
         run: |
-          if [[ ${{ steps.check_changes.outputs.changes }} ]]; then
+          if ${{ steps.check_changes.outputs.changes }}; then
           echo changed!;
           else
           echo not change :(;
